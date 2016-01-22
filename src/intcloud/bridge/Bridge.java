@@ -6,16 +6,18 @@ import android.os.Bundle;
 //1
 import android.webkit.WebView;
 import android.annotation.SuppressLint;
-   
+//2
+@SuppressLint("SetJavaScriptEnabled")
+
 public class Bridge extends Activity {
 	WebView webView;
 	 
-    @SuppressLint("SetJavaScriptEnabled")
+ 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
+        
         webView = (WebView) findViewById(R.id.webView1);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
@@ -24,7 +26,7 @@ public class Bridge extends Activity {
         webView.getSettings().setSupportZoom(false);
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
-// 2        
+// 3        
    
         webView.loadUrl("file:///android_asset/www/index.html");
   
